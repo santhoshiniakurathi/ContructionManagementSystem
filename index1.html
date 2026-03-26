@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Construction Management Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1 align="center">Construction Management Platform</h1>
+        <nav>
+            <button onclick="router('home')" id="nav-home" class="active">Home</button>
+            <button onclick="router('interior')" id="nav-interior">Interior</button>
+            <button onclick="router('blueprint')" id="nav-blueprint">Blueprints</button>
+            <button onclick="router('estimate')" id="nav-estimate">Estimate</button>
+            <button onclick="router('chat')" id="nav-chat">Chat Support</button>
+        </nav>
+    </header>
+    <main>
+            <section id="home" class="active-section">
+                <div class="intro-text">
+                    <h2>Welcome</h2>
+                    <p>This platform helps you plan, design, estimate, and manage construction projects efficiently from start to finish.</p>
+                </div>            
+                <div class="card-container">
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/f7cc7ca7-c05a-49c3-8f62-d628cef0a37b.jpg?auth_key=1870656520-3fcf9539cf6845cdaf09a40349a472b5-0-c5ebd6f67d315ed13b6af3251d6af39e" alt="Interior Design">
+                        <h3>Interior Designs</h3>
+                        <p>Explore modern and luxury interior design ideas for your dream space.</p>
+                        <button class="card-btn" onclick="router('interior')">View Gallery</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/1c75e63d-d481-4610-92a1-fa7ea4819234.jpg?auth_key=1870656520-6a34b95d0ec24655baa00283604178e3-0-91410532f395daa6cf62839e64de649b" alt="Blueprint Design">
+                        <h3>Blueprints</h3>
+                        <p>View professional building plans and interact with 2D layouts.</p>
+                        <button class="card-btn" onclick="router('blueprint')">View Plans</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/b11d45a0-a45a-4001-9272-08f091d6afea.jpg?auth_key=1870656520-8930620606a14a30ace3351a765c4191-0-8db1df5de29175a8bd0627bc6c826c66" alt="Cost Estimation">
+                        <h3>Cost Estimation</h3>
+                        <p>Get accurate project cost estimates instantly using our tool.</p>
+                        <button class="card-btn" onclick="router('estimate')">Calculate Now</button>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/1bbb49f6-52f4-431e-a8f6-dac01c4b953d.jpeg?auth_key=1870656520-7e4703a7b40a4ea68a9e7066833698f6-0-b1bde8797603b08c5693ea1038d5253c" alt="Chatbot Support">
+                        <h3>Chatbot Support</h3>
+                        <p>Get instant help and guidance anytime with our AI assistant.</p>
+                        <button class="card-btn" onclick="router('chat')">Start Chat</button>
+                    </div>
+                </div>
+            </section>
+            <section id="interior">
+                <h2>Interior Design Gallery</h2>
+                <p class="intro-text">Browse our collection of curated interior spaces designed for comfort and style.</p>
+                <div class="card-container">
+                    <div class="card">
+                        <img src="C:\Users\hp\Downloads\living.jpg" alt="Modern Living Room">
+                        <h3>Modern Living Room</h3>
+                        <p>Elegant and spacious living room designs featuring minimalist decor.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/30b48671-161c-4d47-9b5c-b128709bc168.jpg?auth_key=1870656520-6c3e2f3dadf84e198afdc802eca3e622-0-7f072e27ea66288921a7ec3748094814" alt="Luxury Bedroom">
+                        <h3>Luxury Bedroom</h3>
+                        <p>Comfortable and stylish bedroom interiors with soothing tones.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/43094705-9fa5-4dc9-a333-4f80e4731de8.jpg?auth_key=1870656520-e961a8f77a2b49468e27b3cda2cfe203-0-8aee843e6f5ee3784ab477ed2ad027e0" alt="Modular Kitchen">
+                        <h3>Modular Kitchen</h3>
+                        <p>Efficient and modern kitchen layouts maximizing storage and utility.</p>
+                    </div>
+                    <div class="card">
+                        <img src="https://z-cdn-media.chatglm.cn/files/4d865f3f-c6f9-4389-b10c-4a501638f7e4.png?auth_key=1870656520-b9a9777e6b1442948d56e7f713a02241-0-d2d2d8bd976c679385959674f2a1a212" alt="Office Interiors">
+                        <h3>Office Interiors</h3>
+                        <p>Professional and productive workspace designs for the modern business.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="blueprint">
+                <h2>Interactive Blueprint Viewer</h2>
+                <p class="intro-text">Select a room type to load the technical 2D floor plan.</p>
+                <div class="blueprint-viewer">
+                    <div class="blueprint-controls">
+                        <button onclick="loadBlueprint('living')" id="btn-living" class="active">Living Room</button>
+                        <button onclick="loadBlueprint('master')" id="btn-master">Master Bedroom</button>
+                        <button onclick="loadBlueprint('kitchen')" id="btn-kitchen">Kitchen</button>
+                    </div>
+                    <svg id="blueprintCanvas" viewBox="0 0 400 300">
+                    </svg>
+                    <div style="margin-top: 15px;">
+                        <small><strong>Instructions:</strong> Hover over lines to see structure. Dimensions are in feet.</small>
+                    </div>
+                </div>
+            </section>
+            <section id="estimate">
+                <h2>Project Cost Estimation</h2>
+                <p class="intro-text">Enter your project details to get an instant rough estimate.</p>
+                <div class="estimator-tool">
+                    <div class="form-group">
+                        <label for="area">Total Area (sq.ft)</label>
+                        <input type="number" id="area" placeholder="e.g., 1200" oninput="clearResult()">
+                    </div>
+                    <div class="form-group">
+                        <label for="quality">Material Quality</label>
+                        <select id="quality">
+                            <option value="1200">Standard Basic ($1,200/sqft)</option>
+                            <option value="1800" selected>Premium Modern ($1,800/sqft)</option>
+                            <option value="2500">Luxury Custom ($2,500/sqft)</option>
+                        </select>
+                    </div>
+                    <button class="card-btn" style="width:100%" onclick="calculateCost()">Estimate Cost</button>
+                    <div id="result" class="result-box">
+                        <h4>Estimated Cost Breakdown:</h4>
+                        <p>Base Construction: <span id="baseCost">$0</span></p>
+                        <p style="font-size: 1.2rem; font-weight: bold; color: var(--primary-color); margin-top:10px;">
+                            Total Estimate: <span id="totalCost">$0</span>
+                        </p>
+                        <p style="font-size: 0.8rem; color: #777;">*Estimates are approximate. Consult a contractor for final quotes.</p>
+                    </div>
+                </div>
+            </section>
+            <section id="chat">
+                <h2>Chatbot Support</h2>
+                <p class="intro-text">Ask questions about our services, costs, or designs.</p>
+                <div class="chat-container">
+                    <div class="chat-history" id="chatHistory">
+                        <div class="message bot-msg">
+                            Hello! I am your construction assistant. How can I help you today? Try asking about "costs", "interior designs", or "blueprints".
+                        </div>
+                    </div>
+                    <div class="chat-input-area">
+                        <input type="text" id="userMsg" placeholder="Type your question..." onkeypress="handleEnter(event)">
+                        <button class="card-btn" onclick="sendMessage()">Send</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    <footer>
+        <p>&copy; 2023 Construction Management Platform. All Rights Reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
